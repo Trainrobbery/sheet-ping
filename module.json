@@ -1,0 +1,47 @@
+{
+  "id": "sheet-ping",
+  "title": "Sheet Ping",
+  "description": "Middle-click official character and NPC sheet targets, visible map tokens or map points to post compact public pings with map navigation links. Optional Z + click. Targets Foundry 13.351 and D&D5e 5.3.3.",
+  "version": "0.4.0-alpha.1",
+  "authors": [
+    {
+      "name": "Sheet Ping"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13.351",
+    "maximum": "13.351"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.3.3",
+          "maximum": "5.3.3"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/sheet-ping.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "ko",
+      "name": "한국어",
+      "path": "lang/ko.json"
+    }
+  ],
+  "readme": "README.md",
+  "url": "https://github.com/Trainrobbery/sheet-ping"
+}

@@ -1,0 +1,92 @@
+{
+  "SHEETPING": {
+    "Settings": {
+      "enabled": {
+        "Name": "Enable Sheet Ping",
+        "Hint": "Post compact public pings from the official character and NPC sheets."
+      },
+      "zEnabled": {
+        "Name": "Enable ping input",
+        "Hint": "Use the selected input to ping sheet targets, map tokens and empty map points on this client."
+      },
+      "allowObserverPings": {
+        "Name": "Allow observer pings",
+        "Hint": "Allow users with OBSERVER permission to ping from character and NPC sheets. Disable to restrict sheet pings to owners and GMs."
+      },
+      "inputMode": {
+        "Name": "Ping input method",
+        "Hint": "Select the input for sheets and maps. Defaults to middle click; changes apply immediately.",
+        "Middle": "Middle click (wheel button)",
+        "ZClick": "Z + left click"
+      }
+    },
+    "Message": {
+      "item": "{player} points to <strong>{label}</strong> in {actor}'s inventory",
+      "feature": "{player} points to <strong>{label}</strong> among {actor}'s features",
+      "spell": "{player} points to <strong>{label}{status}</strong> in {actor}'s spell list",
+      "ability": "{player} points to {actor}'s <strong>{label}: score {score}, modifier {modifier}</strong>",
+      "skill": "{player} points to {actor}'s <strong>{label} modifier {modifier}</strong>",
+      "save": "{player} points to {actor}'s <strong>{label} saving throw modifier {modifier}</strong>",
+      "initiative": "{player} points to {actor}'s <strong>initiative modifier {modifier}</strong>",
+      "speed": "{player} points to {actor}'s <strong>{label}: {value} {unit}</strong>",
+      "proficiency": "{player} points to {actor}'s <strong>proficiency bonus {modifier}</strong>",
+      "ac": "{player} points to {actor}'s <strong>AC {value}</strong>",
+      "hp": "{player} points to {actor}'s <strong>HP of {current}/{maximum}</strong>",
+      "inspiration": "{player} points to {actor}'s <strong>inspiration: {state}</strong>",
+      "currency": "{player} points to {actor}'s money: <strong>{money}</strong>",
+      "token": "{player} points to <strong>{token}</strong>",
+      "weight": "{player} points to {actor}'s <strong>carried weight: {current}/{maximum} {unit}</strong>",
+      "size": "{player} points to {actor}'s <strong>size: {label}</strong>",
+      "sizeMultiplier": "{player} points to {actor}'s <strong>size multiplier: ×{value}</strong>",
+      "attunement": "{player} points to {actor}'s <strong>attunement: {current}/{maximum}</strong>",
+      "exhaustion": "{player} points to {actor}'s <strong>exhaustion level {value}</strong>",
+      "deathProgress": "{player} points to {actor}'s <strong>death saves: {success}/{maximum} successes, {failure}/{maximum} failures</strong>",
+      "point": "{player} points to {point} on the map",
+      "spellAbility": "{player} points to {actor}'s <strong>{source}spellcasting ability ({label}) modifier {modifier}</strong>",
+      "spellAttack": "{player} points to {actor}'s <strong>{source}spell attack modifier {modifier}</strong>",
+      "spellDC": "{player} points to {actor}'s <strong>{source}spell save DC {value}</strong>",
+      "attack": "{player} points to <strong>{label}</strong> among {actor}'s attacks",
+      "initiativeScore": "{player} points to {actor}'s <strong>initiative score {value}</strong>"
+    },
+    "Status": {
+      "Prepared": "Prepared",
+      "Unprepared": "Not prepared",
+      "Always": "Always prepared",
+      "Cantrip": "Cantrip",
+      "AtWill": "At will",
+      "Innate": "Innate",
+      "Ritual": "Ritual"
+    },
+    "UnidentifiedItem": "Unidentified item",
+    "Hover": "hover",
+    "Target": {
+      "Exhaustion": "Exhaustion",
+      "DeathProgress": "Death save progress",
+      "MapPoint": "a point"
+    },
+    "Inspiration": {
+      "Label": "Inspiration",
+      "Available": "available",
+      "Unavailable": "unavailable",
+      "PingHint": "Click using the configured ping input"
+    },
+    "Error": {
+      "Environment": "This Sheet Ping prototype only enables input on FVTT 13.351 and D&D5e 5.3.3.",
+      "Permission": "You do not have permission to ping this character, NPC or item.",
+      "ChatPermission": "You do not have permission to create chat messages.",
+      "MissingData": "The current data for this target could not be read.",
+      "Unsupported": "This ping target is not supported by the prototype.",
+      "CreateFailed": "The ping message was not created.",
+      "Unexpected": "Could not create the ping message. See the developer console.",
+      "MapPingFailed": "The chat ping was sent, but the map ping effect could not be displayed.",
+      "TargetUnavailable": "This point or token is unavailable or not currently visible.",
+      "ScenePermission": "You do not have permission to view that scene.",
+      "CanvasNotReady": "The map is not ready. Open the scene and try again.",
+      "NavigationFailed": "Could not move your view to that location."
+    },
+    "Link": {
+      "Focus": "Move your view to this location"
+    },
+    "NoSpellAbility": "not set"
+  }
+}

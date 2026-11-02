@@ -1,0 +1,92 @@
+{
+  "SHEETPING": {
+    "Settings": {
+      "enabled": {
+        "Name": "Sheet Ping 사용",
+        "Hint": "공식 캐릭터·NPC 시트에서 간결한 전체 공개 지목 메시지를 보냅니다."
+      },
+      "zEnabled": {
+        "Name": "지목 입력 사용",
+        "Hint": "이 클라이언트에서 선택한 입력 방식으로 시트 항목·맵의 토큰·빈 지점을 지목합니다."
+      },
+      "allowObserverPings": {
+        "Name": "관찰자 지목 허용",
+        "Hint": "관찰자(OBSERVER) 권한으로 열람 중인 캐릭터·NPC 시트에서도 지목을 허용합니다. 끄면 시트 소유자와 GM만 지목할 수 있습니다."
+      },
+      "inputMode": {
+        "Name": "지목 입력 방식",
+        "Hint": "시트와 맵에 사용할 입력을 선택합니다. 기본값은 휠 클릭이며 변경 즉시 적용됩니다.",
+        "Middle": "휠 클릭 (가운데 버튼)",
+        "ZClick": "Z + 좌클릭"
+      }
+    },
+    "Message": {
+      "item": "{player}님이 {actor}의 소지품 중 <strong>{label}</strong> 지목",
+      "feature": "{player}님이 {actor}의 능력 중 <strong>{label}</strong> 지목",
+      "spell": "{player}님이 {actor}의 주문 목록 중 <strong>{label}{status}</strong> 지목",
+      "ability": "{player}님이 {actor}의 <strong>{label} 수치가 {score}, 수정치가 {modifier}</strong>라고 지목",
+      "skill": "{player}님이 {actor}의 기술 중 <strong>{label} 수정치 {modifier}</strong> 지목",
+      "save": "{player}님이 {actor}의 <strong>{label} 내성 수정치 {modifier}</strong> 지목",
+      "initiative": "{player}님이 {actor}의 <strong>우선권 수정치 {modifier}</strong> 지목",
+      "speed": "{player}님이 {actor}의 <strong>{label} {value} {unit}</strong> 지목",
+      "proficiency": "{player}님이 {actor}의 <strong>숙련 보너스 {modifier}</strong> 지목",
+      "ac": "{player}님이 {actor}의 <strong>AC {value}</strong> 지목",
+      "hp": "{player}님이 {actor}의 <strong>HP가 {current}/{maximum}</strong>라고 지목",
+      "inspiration": "{player}님이 {actor}의 <strong>고양감 {state}</strong> 지목",
+      "currency": "{player}님이 {actor}의 보유 금액 <strong>{money}</strong> 지목",
+      "token": "{player}님이 <strong>{token}</strong> 지목",
+      "weight": "{player}님이 {actor}의 <strong>소지 무게 {current}/{maximum} {unit}</strong> 지목",
+      "size": "{player}님이 {actor}의 <strong>크기 {label}</strong> 지목",
+      "sizeMultiplier": "{player}님이 {actor}의 <strong>크기 보정률 ×{value}</strong> 지목",
+      "attunement": "{player}님이 {actor}의 <strong>조율 횟수 {current}/{maximum}</strong> 지목",
+      "exhaustion": "{player}님이 {actor}의 <strong>탈진 {value}단계</strong> 지목",
+      "deathProgress": "{player}님이 {actor}의 <strong>죽음 내성 성공 {success}/{maximum}, 실패 {failure}/{maximum}</strong> 지목",
+      "point": "{player}님이 지도의 {point}을 지목",
+      "spellAbility": "{player}님이 {actor}의 <strong>{source}주문 시전 능력({label}) 수정치 {modifier}</strong> 지목",
+      "spellAttack": "{player}님이 {actor}의 <strong>{source}주문 공격 수정치 {modifier}</strong> 지목",
+      "spellDC": "{player}님이 {actor}의 <strong>{source}주문 내성 DC {value}</strong> 지목",
+      "attack": "{player}님이 {actor}의 공격 중 <strong>{label}</strong> 지목",
+      "initiativeScore": "{player}님이 {actor}의 <strong>우선권 수치 {value}</strong> 지목"
+    },
+    "Status": {
+      "Prepared": "준비됨",
+      "Unprepared": "준비 안 됨",
+      "Always": "항상 준비됨",
+      "Cantrip": "소마법",
+      "AtWill": "임의 시전",
+      "Innate": "선천적 시전",
+      "Ritual": "의식"
+    },
+    "UnidentifiedItem": "미식별 아이템",
+    "Hover": "정지 비행",
+    "Target": {
+      "Exhaustion": "탈진",
+      "DeathProgress": "죽음 내성 진행도",
+      "MapPoint": "한 지점"
+    },
+    "Inspiration": {
+      "Label": "고양감",
+      "Available": "있음",
+      "Unavailable": "없음",
+      "PingHint": "설정한 지목 입력 방식으로 클릭"
+    },
+    "Error": {
+      "Environment": "Sheet Ping 초안은 FVTT 13.351 · D&D 5e 5.3.3에서만 입력을 활성화합니다.",
+      "Permission": "이 캐릭터·NPC 또는 항목을 지목할 권한이 없습니다.",
+      "ChatPermission": "채팅 메시지를 생성할 권한이 없습니다.",
+      "MissingData": "지목할 항목의 현재 데이터를 확인할 수 없습니다.",
+      "Unsupported": "초안에서 지원하지 않는 지목 대상입니다.",
+      "CreateFailed": "지목 메시지가 생성되지 않았습니다.",
+      "Unexpected": "지목 메시지를 만들지 못했습니다. 개발자 콘솔을 확인하세요.",
+      "MapPingFailed": "채팅 지목은 전송했지만 지도 핑 효과를 표시하지 못했습니다.",
+      "TargetUnavailable": "해당 지점이나 토큰을 찾을 수 없거나 현재 볼 수 없습니다.",
+      "ScenePermission": "해당 장면을 볼 권한이 없습니다.",
+      "CanvasNotReady": "지도가 준비되지 않았습니다. 장면을 연 뒤 다시 눌러주세요.",
+      "NavigationFailed": "해당 위치로 화면을 이동하지 못했습니다."
+    },
+    "Link": {
+      "Focus": "해당 위치로 화면 이동"
+    },
+    "NoSpellAbility": "미지정"
+  }
+}

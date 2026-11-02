@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<title>Sheet Ping DOM test fixture</title>
+<link rel="stylesheet" href="/styles/sheet-ping.css">
+<style>
+body { font: 16px sans-serif; margin: 24px; color: #eee; background: #181b22; }
+.sheet { padding: 12px; border: 1px solid #777; width: 680px; }
+.skills li, .saves li { display: flex; gap: 20px; }
+.ability-score { display: flex; gap: 20px; }
+.item-row { display: flex; gap: 20px; }
+.item-name, .name { display: inline-block; }
+.chat-message { background: rgb(90, 70, 50); border: 2px solid red; padding: 8px; margin: 8px; }
+.message-header { display: flex; gap: 10px; }
+.message-header img { width: 30px; height: 30px; }
+#chat { width: 260px; }
+</style>
+<body>
+<!-- Hand-authored minimal fixture of the structures inspected in release-5.3.3;
+     it is not a running Foundry sheet or a copy of its full template. -->
+<main class="sheet" id="sheet">
+  <header class="sheet-header"><button class="inspiration" data-action="toggleInspiration" id="inspiration" aria-pressed="true">Inspiration</button></header>
+  <div class="sidebar"><div class="stats">
+    <div class="pips" data-prop="system.attributes.exhaustion"><button class="pip" data-action="togglePip" id="exhaustion-pip">Exhaustion</button></div>
+    <div class="ac-badge"><div data-attribution="attributes.ac" id="ac">18</div><button class="config-button" id="ac-config">Configure AC</button></div>
+    <div class="lozenges">
+      <div class="lozenge rollable" data-action="roll" data-type="initiative"><div class="value"><span id="initiative">+5</span><button class="config-button" id="initiative-config">Configure</button></div><div class="label" id="initiative-label">Initiative</div></div>
+      <div class="lozenge" data-attribution="attributes.movement"><div class="value" id="speed">60<button class="config-button" id="speed-config">Configure</button></div><div class="label" id="speed-label">Flying</div></div>
+      <div class="lozenge"><div class="value" id="proficiency-bonus">+3</div><div class="label" id="proficiency-label">Proficiency</div></div>
+    </div>
+    <div class="meter-group"><div class="label">HP<button class="config-button" id="hp-config">Configure HP</button></div>
+      <div class="meter sectioned hit-points"><div class="progress hit-points" role="meter" id="hp-display">
+        <div class="label"><span class="value" id="hp-current">22</span>/<span class="max" id="hp-maximum">50</span><span class="bonus" id="hp-max-bonus">+10</span></div>
+        <input type="text" name="system.attributes.hp.value" id="hp-input" value="99" hidden>
+      </div><div class="tmp"><input type="text" name="system.attributes.hp.temp" id="temporary-hp" value="99"></div></div>
+    </div>
+    <div class="meter hit-dice progress" role="meter"><div class="label" id="hit-dice">3/5</div></div>
+  </div>
+    <div class="death-tray"><div class="death-saves">
+      <div class="pips" data-prop="system.attributes.death.success"><button class="pip" data-action="togglePip" id="death-success">Success</button></div>
+      <button class="death-save" data-action="roll" data-type="deathSave" id="death-roll">Death save</button>
+      <div class="pips" data-prop="system.attributes.death.failure"><button class="pip failure" data-action="togglePip" id="death-failure">Failure</button></div>
+    </div><button class="death-tab" data-action="toggleDeathTray" id="death-tab">Toggle tray</button></div>
+  </div>
+  <section class="ability-scores"><div class="ability-score" data-ability="str">
+    <a class="label ability-check rollable" data-action="roll" data-type="ability" id="ability">STR</a>
+    <div class="mod" id="ability-mod">+3</div><div class="score" id="ability-score">16</div>
+    <div class="score"><input id="ability-input" value="99"></div>
+    <button class="config-button" id="ability-config">Configure</button>
+  </div></section>
+  <filigree-box class="skills"><ul><li data-key="ste">
+    <proficiency-cycle id="proficiency">●</proficiency-cycle>
+    <select id="skill-select"><option>DEX</option></select>
+    <a class="name skill-name rollable" data-action="roll" data-type="skill" id="skill">Stealth</a>
+    <div class="bonus" id="skill-bonus">+7</div><div class="passive" id="passive">17</div>
+    <button class="config-button" id="skill-config">Configure</button>
+  </li></ul></filigree-box>
+  <filigree-box class="saves"><ul><li data-ability="dex">
+    <a class="name saving-throw full rollable" data-action="roll" data-type="ability" id="save">Dexterity</a>
+    <div class="bonus" id="save-bonus">+6</div>
+  </li><li data-ability="concentration"><a class="saving-throw" id="concentration">Concentration</a></li></ul></filigree-box>
+  <section class="tab" data-tab="spells"><section class="top">
+    <div class="spellcasting card" data-ability="int">
+      <div class="header"><h3>Wizard Spellcasting</h3><button class="radio-button" data-action="setSpellcastingAbility" id="spell-primary">Primary</button></div>
+      <div class="info">
+        <div class="ability"><span class="label" id="casting-ability-label">Ability</span><span class="value" id="casting-ability">+4</span></div>
+        <div class="attack"><span class="label" id="spell-attack-label">Attack</span><span class="value" id="spell-attack">+9</span></div>
+        <div class="save"><span class="label" id="spell-dc-label">Spell DC</span><span class="value" id="spell-dc">18</span></div>
+        <div class="prepared"><span class="label">Prepared</span><span class="value" id="spell-prepared">3/5</span></div>
+      </div>
+    </div>
+    <div class="spellcasting card" data-ability="cha"><div class="header"><h3>Warlock Spellcasting</h3></div><div class="info">
+      <div class="ability"><span class="label">Ability</span><span class="value" id="warlock-ability">-1</span></div>
+      <div class="attack"><span class="label">Attack</span><span class="value" id="warlock-attack">+1</span></div>
+      <div class="save"><span class="label">Spell DC</span><span class="value" id="warlock-dc">11</span></div>
+    </div></div>
+  </section></section>
+  <section class="tab" data-tab="inventory">
+    <div class="top"><div class="encumbrance card">
+      <div class="meter progress" role="meter" id="inventory-weight"><div class="label"><span class="value">57.8</span>/<span class="max">480</span></div></div>
+      <div class="info"><div class="strength" id="inventory-strength"><span class="label">STR</span><span class="value">16</span></div>
+        <div class="size" id="inventory-size"><span class="label">Size</span><span class="value">M</span></div>
+        <div class="multiplier" id="inventory-multiplier"><span class="label">Multiplier</span><span class="value">×2</span></div>
+      </div>
+    </div><ul class="containers"><li class="container" data-item-id="bag"><a class="item-action" data-action="showDocument"><div class="meter progress" role="meter" id="container-capacity"></div><img id="container-icon" alt="Bag"></a></li></ul></div>
+  <dnd5e-inventory>
+    <section class="currency" id="currency-area"><button class="item-action" data-action="currency" id="currency-all">Money</button>
+      <label><i class="currency gp" id="currency-gp">GP</i><input name="system.currency.gp" value="999" id="currency-input"></label>
+      <label><i class="currency cp" id="currency-cp">CP</i><input name="system.currency.cp" value="5"></label>
+    </section>
+    <div class="middle"><div class="attunement"><i id="attunement-icon">Attunement</i><span class="value" id="attunement-value">2</span>/<span class="max" id="attunement-max">3</span><input name="system.attributes.attunement.max" id="attunement-input" value="99"></div></div>
+    <ol class="item-list">
+    <li class="item" data-item-id="potion"><div class="item-row draggable">
+      <div class="item-name item-action" data-action="use">
+        <img class="item-image" id="item-image" alt="icon">
+        <div class="name name-stacked"><span class="title" id="item">Potion <em id="item-child">name</em></span><span class="subtitle" id="subtitle">Subtitle</span></div>
+        <div class="tags" id="tags">tags</div>
+      </div>
+      <input id="quantity" value="2"><button data-action="equip" id="equip">Equip</button>
+      <button data-action="prepare" id="prepare">Prepare</button>
+      <button class="item-control" id="delete">Delete</button>
+      <a data-context-menu id="menu">Menu</a>
+    </div><div class="item-description"><span id="description">Description</span>
+      <div class="activity-row" data-activity-id="attack"><div class="item-name"><div class="name"><span class="title" id="activity">Attack</span></div></div></div>
+    </div></li>
+    <li class="item" data-item-id="feature"><div class="item-row"><div class="item-name"><div class="name"><span class="title" id="feature">Feature</span></div></div></div></li>
+    <li class="item" data-item-id="spell"><div class="item-row"><div class="item-name"><div class="name"><span class="title" id="spell">Spell</span></div></div></div></li>
+    <li class="item" data-item-id="twin"><div class="item-row"><div class="item-name"><div class="name"><span class="title" id="twin">Potion name</span></div></div></div></li>
+  </ol></dnd5e-inventory>
+  </section>
+  <nav><a role="tab" id="tab">Tab</a></nav>
+  <div class="name" contenteditable="true" id="editable">Editable</div>
+</main>
+<canvas id="map" width="200" height="100"></canvas>
+<ol id="chat"><li class="chat-message" id="ordinary-message"><header class="message-header"><span class="message-sender">Normal</span></header><div class="message-content">Ordinary chat message</div></li></ol>
+</body>
+</html>

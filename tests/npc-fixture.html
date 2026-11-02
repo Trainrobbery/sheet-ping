@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Official NPC structure fixture</title>
+<!-- Hand-authored minimal structures inspected in release-5.3.3, not Foundry. -->
+<main id="sheet" class="npc">
+  <header class="sheet-header">
+    <div class="portrait"><div class="initiative"><span id="initiative">+4</span></div><div class="initiative-score" id="initiative-score">14</div>
+      <div class="death-saves"><button class="death-save" data-action="roll" data-type="deathSave" id="death">Death</button>
+        <div class="results"><div class="success"><input id="death-input"><i id="death-success"></i></div><div class="failure"><input><i id="death-failure"></i></div></div>
+      </div>
+    </div>
+    <div class="vitals"><div class="ac-badge"><div data-attribution="attributes.ac" id="ac">15</div><button class="config-button" id="config">Configure</button></div>
+      <div class="meter hit-points"><div class="progress hit-points" role="meter"><div class="label"><span class="value" id="hp">12</span>/<span class="max">24</span></div><input id="hp-input" hidden></div></div>
+    </div>
+    <div class="stats"><ul><li class="creature-size"><span id="size">Small</span></li></ul>
+      <div class="proficiency"><span>Proficiency</span><strong id="proficiency">+2</strong></div>
+      <div class="ability-scores"><div class="ability-score" data-ability="dex">
+        <a class="label ability-check" data-action="roll" data-type="ability" id="ability">DEX</a><div class="mod" id="mod">+2</div><div class="score" id="score">14</div>
+        <div class="save-tab saving-throw" data-action="roll" data-type="ability"><proficiency-cycle id="save-cycle"></proficiency-cycle><span class="save" id="save">+5</span><i id="save-icon"></i></div>
+      </div></div>
+      <div class="legendary"><div class="pips"><button data-action="togglePip" id="legendary">Legendary</button></div></div>
+    </div>
+  </header>
+  <div class="sidebar">
+    <div class="pills-group"><h3 class="icon"><i class="fas fa-shoe-prints"></i><span>Speed</span></h3><ul class="pills">
+      <li class="pill"><span class="label" id="walk-label">Walk</span><span class="value" id="walk">30</span></li>
+      <li class="pill"><span class="label">Fly</span><span class="value" id="fly">60</span></li>
+      <li class="pill"><span class="label" id="special-speed">Teleport</span></li>
+    </ul></div>
+    <div class="pills-group"><h3>Skills</h3><ul class="pills"><li class="pill"><a data-action="roll" data-type="skill" data-key="ste"><span class="label" id="skill-label">Stealth</span><span class="value" id="skill">+7</span></a></li></ul></div>
+    <div class="pills-group"><ul class="pills"><li class="pill"><a data-action="showDocument" data-item-id="sword"><span class="label" id="gear">Sword</span></a></li></ul></div>
+  </div>
+  <section data-tab="features"><dnd5e-inventory><ol><li class="item" data-item-id="sword"><div class="item-name" data-action="use"><img id="weapon-image"><div class="name"><span class="title" id="attack">Sword</span></div></div><div class="item-description"><span id="description">Description</span></div></li>
+    <li class="item" data-item-id="feature"><div class="item-name"><div class="name"><span class="title" id="feature">Nimble Escape</span></div></div></li></ol></dnd5e-inventory></section>
+  <section data-tab="inventory"><dnd5e-inventory><section class="currency"><label><i id="currency">GP</i><input name="system.currency.gp" id="currency-input" value="999"></label></section>
+    <div class="middle"><div class="attunement"><i id="attunement">Sun</i><span class="value">1</span>/<span class="max">3</span></div></div>
+    <div class="bottom"><div class="encumbrance"><div class="meter" role="meter"><span class="value" id="weight">12.5</span>/120</div></div></div>
+  </dnd5e-inventory></section>
+  <section data-tab="spells"><section class="top"><div class="spellcasting card" data-ability="int"><div class="header"><h3>Spellcasting</h3><select id="spell-select"><option>INT</option></select></div><div class="info">
+    <div class="ability"><span class="label" id="spell-ability-label">Ability</span><span class="value" id="spell-ability">+3</span></div>
+    <div class="attack"><span class="label">Attack</span><span class="value" id="spell-attack">+8</span></div>
+    <div class="save"><span class="label">Spell DC</span><span class="value" id="spell-dc">17</span></div>
+    <div class="level"><span class="value" id="spell-level">5</span></div>
+  </div></div></section><dnd5e-inventory><li class="item" data-item-id="spell"><div class="item-name"><div class="name"><span class="title" id="spell">Fire Bolt</span></div></div></li></dnd5e-inventory></section>
+</main>

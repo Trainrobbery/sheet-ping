@@ -1,0 +1,88 @@
+/* Only flagged messages receive this class from renderChatMessageHTML. */
+.chat-message.sheet-ping-message {
+  --sheet-ping-background: #eee8dc;
+  --sheet-ping-foreground: #26221d;
+  position: relative;
+  background: var(--sheet-ping-background) !important;
+  opacity: 1;
+  border: 0 !important;
+  border-radius: 4px;
+  box-shadow: none !important;
+  padding: 5px 8px !important;
+  margin: 2px 0 !important;
+  min-height: 0;
+  color: var(--sheet-ping-foreground) !important;
+}
+
+.theme-dark .chat-message.sheet-ping-message,
+.chat-message.sheet-ping-message.theme-dark {
+  --sheet-ping-background: #2b2e36;
+  --sheet-ping-foreground: #f1f1ed;
+}
+
+.chat-message.sheet-ping-message > .message-header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Native delete controls stay available without a separate permanent header. */
+.chat-message.sheet-ping-message:is(:hover, :focus-within) > .message-header {
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  background: var(--sheet-ping-background);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
+.chat-message.sheet-ping-message > .message-header .message-sender,
+.chat-message.sheet-ping-message > .message-header img,
+.chat-message.sheet-ping-message > .message-header .avatar {
+  display: none !important;
+}
+
+.chat-message.sheet-ping-message .message-content {
+  padding: 0;
+  margin: 0;
+}
+
+.sheet-ping-message .sheet-ping-text {
+  margin: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.sheet-ping-inspiration-label,
+.sheet-ping-readonly-status {
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sheet-ping-message .sheet-ping-user-dot {
+  font-style: normal;
+  font-weight: normal;
+}
+
+.sheet-ping-message a.sheet-ping-map-link {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sheet-ping-message a.sheet-ping-map-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
