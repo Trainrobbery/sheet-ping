@@ -1,5 +1,12 @@
 # 변경 기록
 
+## 0.4.0-alpha.2 — 2026-11-02
+
+- FVTT 설치창에서 사용할 고정 매니페스트 URL과 버전별 ZIP 다운로드 URL 추가.
+- 설치 ZIP은 module.json과 런타임 파일을 압축 최상위에 배치. 소스·테스트용 ZIP과 분리.
+- GitHub Actions에서 검증 후 ZIP과 module.json을 릴리스에 게시하고 익명 다운로드를 확인.
+- 알파 릴리스의 설치·업데이트는 고정 raw 매니페스트 URL 사용.
+
 ## 0.4.0-alpha.1 — 2026-11-02
 
 - 공식 NPCActorSheet와 npc Actor에 지목 입력·스냅샷 권한 검사 허용.

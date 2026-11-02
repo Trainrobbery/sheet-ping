@@ -38,7 +38,7 @@ Hooks.once("ready", () => {
   for (const app of instances?.values?.() ?? []) {
     if (app.rendered && app.element) input.bind(app, app.element);
   }
-  console.info(`${MODULE_ID} | 0.4.0-alpha.1 ready`);
+  console.info(`${MODULE_ID} | 0.4.0-alpha.2 ready`);
 });
 
 Hooks.on("renderApplicationV2", (app, element) => input?.bind(app, element));

@@ -1,0 +1,33 @@
+name: Publish Sheet Ping
+on:
+  push:
+    branches: [main]
+    paths: [module.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sheet-ping-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm test
+      - run: python3 tools/package.py --release
+      - name: Publish and verify public downloads
+        run: python3 tools/publish.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}

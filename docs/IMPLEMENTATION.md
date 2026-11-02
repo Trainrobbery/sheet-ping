@@ -1,4 +1,4 @@
-# 구현 기록 — 0.4.0-alpha.1
+# 구현 기록 — 0.4.0-alpha.2
 
 기준 환경: Foundry 13.351, dnd5e 5.3.3, 공식 CharacterActorSheet / NPCActorSheet. Tidy 제외.
 이번 변경: Z 입력 전환, Shift 복원, 토큰·고양감·화폐, 관찰자 지목 옵션.
@@ -148,3 +148,12 @@ NPC 주문 카드는 클래스가 없어도 렌더됩니다. 공격 값은 시�
 NPC 무기는 attack 메시지로 분류하며 아이템 ID/권한/미식별 이름 보호를 적용합니다. initiativeScore는 init.score, 기존 initiative는 init.total입니다. NPC 이름도 actor 공통 formatter에서 굵게 표시합니다.
 
 NPC 시트에 표시되지 않는 PC 전용 필드를 생성하지 않습니다. CR·전설적 행동 점·감각·저항/면역·설명·활동·소모 컨트롤은 이번 대상에 포함하지 않았습니다.
+
+## URL 설치와 릴리스 — 0.4.0-alpha.2
+
+- manifest: https://raw.githubusercontent.com/Trainrobbery/sheet-ping/main/module.json
+- download: https://github.com/Trainrobbery/sheet-ping/releases/download/v0.4.0-alpha.2/sheet-ping.zip
+- tools/package.py --release는 dist/sheet-ping.zip과 동일한 dist/module.json을 만듭니다. 설치 ZIP의 최상위에 module.json을 넣고 런타임·README·변경 기록을 포함하며 테스트/도구/CI/문서는 제외합니다.
+- main에서 module.json을 갱신하면 release.yml이 실행됩니다. 검증, 패키징, 초안에 두 파일 업로드, 게시, 익명 다운로드의 순서로 진행합니다. 릴리스는 버전 태그에 고정하며 이미 게시한 버전의 파일을 교체하지 않습니다.
+- 알파 버전은 prerelease로 표시합니다. GitHub latest 별칭 대신 고정 raw 매니페스트로 설치/업데이트를 제공합니다.
+- 게시 후 설치 파일 두 개의 익명 다운로드, ZIP SHA-256 일치, module.json 내용·압축 무결성을 배포 작업에서 확인합니다. 실제 FVTT 설치 클라이언트 실행은 별도입니다.

@@ -1,4 +1,4 @@
-# Sheet Ping — 0.4.0-alpha.1
+# Sheet Ping — 0.4.0-alpha.2
 
 **휠 클릭(가운데 버튼 누르기)**으로 캐릭터·NPC 시트의 항목이나 맵의 토큰·빈 지점을 전체 채팅에 지목합니다. 모듈 설정에서 **Z + 좌클릭**으로 바꿀 수 있습니다.
 
@@ -14,15 +14,19 @@
 
 ## 설치·업데이트
 
-1. ZIP을 풀어 내부 `sheet-ping` 폴더를 Foundry 사용자 데이터 폴더의 `Data/modules/`에 복사합니다.
-2. 기존 버전이 있으면 Foundry를 종료하고 기존 `sheet-ping` 폴더를 교체합니다.
-3. `Data/modules/sheet-ping/module.json`의 버전이 `0.4.0-alpha.1`인지 확인합니다.
-4. 서버를 재시작하고 월드의 모듈 관리에서 Sheet Ping을 활성화합니다.
-5. **모든 참가자의 브라우저를 새로고침**합니다. 이전 버전의 Shift 리스너는 페이지 새로고침으로 제거됩니다.
+FVTT 설정 화면 → **애드온 모듈 → 모듈 설치 → Manifest URL**에 다음 주소를 넣습니다.
 
-기존 설정과 과거 채팅 메시지는 보존됩니다. 이전 `shiftEnabled` 설정은 더 이상 읽거나 등록하지 않습니다.
-지목 입력 방식의 기본값은 **휠 클릭**입니다. 기존 설치에도 새 방식 선택 이력이 없으면 휠 클릭을 적용합니다. 기존 입력 켜기/끄기 상태와 관찰자 옵션은 유지됩니다.
-이 버전은 수동 설치용입니다. 추가 모듈·서버·라이브러리는 필요하지 않습니다.
+```text
+https://raw.githubusercontent.com/Trainrobbery/sheet-ping/main/module.json
+```
+
+설치 후 월드의 모듈 관리에서 Sheet Ping을 활성화합니다. 업데이트는 FVTT의 모듈 업데이트 버튼으로 확인합니다. 업데이트 후 모든 참가자의 브라우저를 새로고침합니다.
+
+수동 설치는 [Releases](https://github.com/Trainrobbery/sheet-ping/releases)의 `sheet-ping.zip`을 내려받아 내부 파일을 `Data/modules/sheet-ping/`에 풉니다. `Data/modules/sheet-ping/module.json`이 있어야 합니다. 기존 폴더를 교체할 때는 Foundry를 종료한 뒤 교체하고 재시작합니다.
+
+GitHub에서 자동 생성하는 소스 ZIP보다 릴리스에 첨부된 `sheet-ping.zip`을 사용합니다. 알파 릴리스는 GitHub의 latest 링크에 포함되지 않으므로 위의 고정 매니페스트 주소를 사용합니다.
+
+기존 설정과 과거 채팅 메시지는 보존됩니다. 입력 방식의 기본값은 휠 클릭이며, 기존 입력 활성화 상태와 관찰자 옵션은 유지됩니다. 추가 모듈·서버·라이브러리는 필요하지 않습니다.
 
 ## 조작
 
@@ -167,6 +171,7 @@ npm test
 npm run test:browser
 npm run test:npc-browser
 python3 tools/package.py
+python3 tools/package.py --release
 ```
 
 단위 검증은 Node 22 이상에서 외부 패키지 없이 실행합니다.
@@ -186,3 +191,9 @@ python3 tools/package.py
 지원 범위는 지정 버전과 공식 기본 캐릭터·NPC 시트로 제한합니다. Tidy·레거시·다른 시트, 차량·그룹 시트, 즐겨찾기·활동은 제외합니다.
 다른 모듈이 더 앞선 이벤트에서 행동을 실행하면 차단을 보장할 수 없습니다. 실제 굴림·토큰 조작 모듈 조합에서 확인이 필요합니다.
 소스 저장소: [Trainrobbery/sheet-ping](https://github.com/Trainrobbery/sheet-ping). 라이선스는 아직 확정하지 않았으며, 매니페스트 `verified`는 실제 플레이 검증 전에는 선언하지 않습니다.
+
+## 릴리스 게시
+
+`module.json`, `package.json`의 버전과 버전별 download 주소, 변경 기록을 갱신하고 main에 커밋하면 Publish Sheet Ping 작업이 실행됩니다. 작업은 자동 검증 후 설치 ZIP과 module.json을 초안 릴리스에 업로드하고 게시합니다. 게시한 버전을 덮어쓰지 않으므로 이후에는 버전을 올립니다.
+
+`manifest`는 고정된 main의 raw module.json, `download`는 버전 태그에 고정된 설치 ZIP입니다. 알파 버전은 GitHub prerelease로 표시하며, FVTT 설치는 위 매니페스트 URL로 가능합니다.
